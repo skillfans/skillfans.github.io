@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+  <meta charset="UTF-8">
+  <meta 
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <meta 
+    http-equiv="X-UA-Compatible" 
+    content="ie=edge">
+  <meta 
+    name="theme-color" 
+    content="#fff" 
+    id="theme-color">
+  <meta 
+    name="description" 
+    content="skillfans-博客">
+  <link 
+    rel="icon" 
+    href="/img/logo.png">
+  <title>上网指南</title>
+  
+    
+      <meta 
+        property="og:title" 
+        content="上网指南">
+    
+    
+      <meta 
+        property="og:url" 
+        content="http://example.com/2022/04/29/%E4%B8%8A%E7%BD%91%E6%8C%87%E5%8D%97/index.html">
+    
+    
+      <meta 
+        property="og:img" 
+        content="/img/author.png">
+    
+    
+    
+      <meta 
+        property="og:type" 
+        content="article">
+      <meta 
+        property="og:article:published_time" 
+        content="2022-04-29">
+      <meta 
+        property="og:article:modified_time" 
+        content="2022-05-20">
+      <meta 
+        property="og:article:author" 
+        content="Yuanlin">
+      
+        
+          <meta 
+            property="og:article:tag" 
+            content="V2ray">
+        
+      
+    
+  
+  <script>
+    function loadScript(url, cb) {
+      var script = document.createElement('script');
+      script.src = url;
+      if (cb) script.onload = cb;
+      script.async = true;
+      document.body.appendChild(script);
+    }
+    function loadCSS(href, data, attr) {
+      var sheet = document.createElement('link');
+      sheet.ref = 'stylesheet';
+      sheet.href = href;
+      sheet.dataset[data] = attr;
+      document.head.appendChild(sheet);
+    }
+    function changeCSS(cssFile, data, attr) {
+      var oldlink = document.querySelector(data);
+      var newlink = document.createElement("link");
+      newlink.setAttribute("rel", "stylesheet");
+      newlink.setAttribute("href", cssFile);
+      newlink.dataset.prism = attr;
+      document.head.replaceChild(newlink, oldlink);
+    }
+  </script>
+  
+    
+  
+  <script>
+    // control reverse button
+    var reverseDarkList = {
+      dark: 'light',
+      light: 'dark'
+    };
+    var themeColor = {
+      dark: '#1c1c1e',
+      light: '#fff'
+    }
+    // get the data of css prefers-color-scheme
+    var getCssMediaQuery = function() {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    };
+    // reverse current darkmode setting function
+    var reverseDarkModeSetting = function() {
+      var setting = localStorage.getItem('user-color-scheme');
+      if(reverseDarkList[setting]) {
+        setting = reverseDarkList[setting];
+      } else if(setting === null) {
+        setting = reverseDarkList[getCssMediaQuery()];
+      } else {
+        return;
+      }
+      localStorage.setItem('user-color-scheme', setting);
+      return setting;
+    };
+    // apply current darkmode setting
+  </script>
+  
+    <script>
+      var setDarkmode = function(mode) {
+      var setting = mode || localStorage.getItem('user-color-scheme');
+      if(setting === getCssMediaQuery()) {
+        document.documentElement.removeAttribute('data-user-color-scheme');
+        localStorage.removeItem('user-color-scheme');
+        document.getElementById('theme-color').content = themeColor[setting];
+        document.getElementById('theme-color').dataset.mode = setting;
+      } else if(reverseDarkList[setting]) {
+        document.documentElement.setAttribute('data-user-color-scheme', setting);
+        document.getElementById('theme-color').content = themeColor[setting];
+        document.getElementById('theme-color').dataset.mode = setting;
+      } else {
+        document.documentElement.removeAttribute('data-user-color-scheme');
+        localStorage.removeItem('user-color-scheme');
+        document.getElementById('theme-color').content = themeColor[getCssMediaQuery()];
+        document.getElementById('theme-color').dataset.mode = getCssMediaQuery();
+      }
+    };
+    setDarkmode();
+    </script>
+  
+  
+  <link rel="preload" href="//at.alicdn.com/t/font_1946621_i1kgafibvw.css" as="style" >
+  <link rel="preload" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css" as="style" >
+  
+  
+    <link rel="preload" href="/js/lib/lightbox/baguetteBox.min.js" as="script">
+    <link rel="preload" href="/js/lib/lightbox/baguetteBox.min.css" as="style" >
+  
+  
+    <link rel="preload" href="/js/lib/lozad.min.js" as="script">
+  
+  
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.css">
+  
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1946621_i1kgafibvw.css">
+  
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css">
+  
+    <link rel="stylesheet" href="/js/lib/lightbox/baguetteBox.min.css">
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+  <body>
+    <div class="wrapper">
+       
+      <nav class="navbar">
+  <div class="navbar-logo">
+    <span class="navbar-logo-main">
+      
+        
+      
+      <span class="navbar-logo-dsc">skillfans-博客</span>
+    </span>
+  </div>
+  <div class="navbar-menu">
+    
+      <a 
+        href="/" 
+        class="navbar-menu-item">
+        
+          首页
+        
+      </a>
+    
+      <a 
+        href="/tags" 
+        class="navbar-menu-item">
+        
+          标签
+        
+      </a>
+    
+      <a 
+        href="/categories" 
+        class="navbar-menu-item">
+        
+          分类
+        
+      </a>
+    
+      <a 
+        href="/links" 
+        class="navbar-menu-item">
+        
+          友链
+        
+      </a>
+    
+      <a 
+        href="/archives" 
+        class="navbar-menu-item">
+        
+          归档
+        
+      </a>
+    
+    <a 
+      class="navbar-menu-item darknavbar" 
+      id="dark">
+      <i class="iconfont icon-weather"></i>
+    </a>
+    <a 
+      class="navbar-menu-item searchnavbar" 
+      id="search">
+      <i 
+        class="iconfont icon-search" 
+        style="font-size: 1.2rem; font-weight: 400;">
+      </i>
+    </a>
+  </div>
+</nav> 
+      
+      <div 
+        id="local-search" 
+        style="display: none">
+        <input
+          class="navbar-menu-item"
+          id="search-input"
+          placeholder="请输入搜索内容..." />
+        <div id="search-content"></div>
+      </div>
+      
+      <div class="section-wrap">
+        <div class="container">
+          <div class="columns">
+            <main class="main-column">
+<article class="card card-content">
+  <header>
+    <h1 class="post-title">
+      上网指南
+    </h1>
+  </header>
+  <div class="post-meta post-show-meta">
+    <time datetime="2022-04-29T03:03:49.000Z">
+      <i 
+        class="iconfont icon-calendar" 
+        style="margin-right: 2px;">
+      </i>
+      <span>2022-04-29</span>
+    </time>
+    
+      <span class="dot"></span>
+      
+        <a 
+          href="/categories/%E7%BD%91%E7%BB%9C/" 
+          class="post-meta-link">
+          网络
+        </a>
+      
+    
+    
+      <span class="dot"></span>
+      <span>599 字</span>
+    
+  </div>
+  
+    <div 
+      class="post-meta post-show-meta" 
+      style="margin-top: -10px;">
+      <div style="display: flex; align-items: center;">
+        <i 
+          class="iconfont icon-biaoqian" 
+          style="margin-right: 2px; font-size: 1.15rem;">
+        </i>
+        
+          
+          <a 
+            href="/tags/V2ray/" 
+            class="post-meta-link">
+            V2ray
+          </a>
+        
+      </div>
+    </div>
+  
+  </header>
+  <div 
+    id="section" 
+    class="post-content">
+    <h3 id="订阅机场服务"><a href="#订阅机场服务" class="headerlink" title="订阅机场服务"></a>订阅机场服务</h3><ul>
+<li>我是用的是速鹰666</li>
+<li>网址：</li>
+</ul>
+<pre class="highlight"><span class="line">请务必保存下方备用网址，以防失联</span><br><span class="line">地址一（新域名）：https://suying00.com</span><br><span class="line">地址二（新域名）：https://suying00.net</span><br><span class="line">地址三（新域名）：https://suying99.com</span><br><span class="line">地址四（新域名）：https://suying99.net</span><br><span class="line">地址五： https://suying688.com</span><br><span class="line">地址六： https://suying688.net</span><br><span class="line">地址七： https://suying222.com</span><br><span class="line">地址八： https://suying222.net</span><br><span class="line">地址九： https://suying55.com</span><br><span class="line">地址十： https://suying55.net</span><br><span class="line">地址十一： https://suying555.com</span><br><span class="line">地址十二： https://suying555.net</span><br><span class="line">地址十三： https://suying456.com</span><br><span class="line">地址十四： https://suying456.net</span><br><span class="line">地址十五： https://suying999.net（被墙）</span><br><span class="line">地址十六： https://suying999.com</span><br><span class="line">地址十七： https://sy168.site</span><br></pre>
+<ul>
+<li><p>在商店订阅套餐</p>
+</li>
+<li><p>注意事项，在订阅梯子建议按月付，梯子不是百分之八稳定，都懂的</p>
+</li>
+<li><p>订阅之后在[节点列表]可以看到很多节点信息<br><img src="https://skillfans.oss-cn-chengdu.aliyuncs.com/bokewenzhang/20220429110618.png" alt="20220429110618" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://skillfans.oss-cn-chengdu.aliyuncs.com/bokewenzhang/20220429110618.png" class="lozad post-image"></p>
+</li>
+</ul>
+<h3 id="下载安装V2ray"><a href="#下载安装V2ray" class="headerlink" title="下载安装V2ray"></a>下载安装V2ray</h3><ul>
+<li>点击[下载和安装教程]进行下载安装V2ray</li>
+<li>也可以查看视频教程，如果打不开视频也没关系</li>
+<li>下载后直接解压打开压缩包内的v2ray.exe程序</li>
+<li>此时电脑没有任何反应，但是在桌面任务栏有一个，蓝色的V图标，即代表一开启V2ray服务</li>
+</ul>
+<p><img src="https://skillfans.oss-cn-chengdu.aliyuncs.com/bokewenzhang/20220429111140.png" alt="20220429111140" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://skillfans.oss-cn-chengdu.aliyuncs.com/bokewenzhang/20220429111140.png" class="lozad post-image"></p>
+<h3 id="复制机场订阅地址"><a href="#复制机场订阅地址" class="headerlink" title="复制机场订阅地址"></a>复制机场订阅地址</h3><ul>
+<li>安装好v2ray后需要到购买的网站，复制v2ray的订阅链接</li>
+</ul>
+<p><img src="https://skillfans.oss-cn-chengdu.aliyuncs.com/bokewenzhang/20220429111452.png" alt="20220429111452" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://skillfans.oss-cn-chengdu.aliyuncs.com/bokewenzhang/20220429111452.png" class="lozad post-image"></p>
+<h3 id="配置V2ray"><a href="#配置V2ray" class="headerlink" title="配置V2ray"></a>配置V2ray</h3><ul>
+<li>重现打开v2ray软件，（点击桌面右下角蓝色V图标即可打开）</li>
+<li>点击菜单栏[订阅]</li>
+<li>[添加订阅]，粘贴刚才复制的机场订阅链接</li>
+<li>[更新订阅]，在下面的信息栏即可看见订阅信息更新结束</li>
+<li>现在关闭窗口即可</li>
+</ul>
+<h4 id="注意大坑"><a href="#注意大坑" class="headerlink" title="注意大坑"></a>注意大坑</h4><ul>
+<li>如果使用的是【宽带拨号】链接网络，请看完看完这点</li>
+<li>在设置宽带拨号时，名称必须为英文或者字母，不可出现汉字，否则无法正常代理</li>
+<li>如果已经有了宽带拨号，那么在[网络适配器]中删除，然后在回到Windows设置里重新添加宽带即可</li>
+</ul>
+<p><img src="https://skillfans.oss-cn-chengdu.aliyuncs.com/bokewenzhang/20220429112328.png" alt="20220429112328" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://skillfans.oss-cn-chengdu.aliyuncs.com/bokewenzhang/20220429112328.png" class="lozad post-image"><br><img src="https://skillfans.oss-cn-chengdu.aliyuncs.com/bokewenzhang/20220429112456.png" alt="20220429112456" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://skillfans.oss-cn-chengdu.aliyuncs.com/bokewenzhang/20220429112456.png" class="lozad post-image"><br><img src="https://skillfans.oss-cn-chengdu.aliyuncs.com/bokewenzhang/20220429112706.png" alt="20220429112706" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://skillfans.oss-cn-chengdu.aliyuncs.com/bokewenzhang/20220429112706.png" class="lozad post-image"></p>
+<h3 id="开启V2ray"><a href="#开启V2ray" class="headerlink" title="开启V2ray"></a>开启V2ray</h3><ul>
+<li>上面的坑成功后</li>
+<li>鼠标放在任务栏蓝色V图标上面，</li>
+<li>右键，选择[服务器]，<ul>
+<li>也就是选择不同的节点</li>
+</ul>
+</li>
+<li>再点击[http代理]，选择<ul>
+<li>选择[开启http代理，全局模式]</li>
+</ul>
+</li>
+<li>当蓝色V图标变成红色V图标，即代表成功翻墙</li>
+</ul>
+<h5 id="更多细节可查看速鹰666官网。。。。。。"><a href="#更多细节可查看速鹰666官网。。。。。。" class="headerlink" title="更多细节可查看速鹰666官网。。。。。。"></a>更多细节可查看速鹰666官网。。。。。。</h5>
+  </div>
+  <div>
+    
+  </div>
+</article>
+<div class="nav">
+  
+    <div class="nav-item-prev">
+      <a 
+        href="/2022/05/03/windows10%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95%E6%B7%BB%E5%8A%A0powershell/" 
+        class="nav-link">
+        <i class="iconfont icon-left nav-prev-icon"></i>
+        <div>
+          <div class="nav-label">上一篇</div>
+          
+            <div class="nav-title">windows10右键菜单添加powershell </div>
+          
+        </div>
+      </a>
+    </div>
+  
+  
+    <div class="nav-item-next">
+      <a 
+        href="/2022/04/21/Windows11%E4%BF%AE%E6%94%B9%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95%E4%B8%BAwin10%E9%A3%8E%E6%A0%BC%E7%9A%84%E6%AD%A5%E9%AA%A4%E6%96%B9%E6%B3%95/" 
+        class="nav-link">
+        <div>
+          <div class="nav-label">下一篇</div>
+          
+            <div class="nav-title">Windows11修改右键菜单为win10风格的步骤方法 </div>
+          
+        </div>
+        <i class="iconfont icon-right nav-next-icon"></i>
+      </a>
+    </div>
+  
+</div>
+
+<div 
+  class="card card-content toc-card" 
+  id="mobiletoc">
+  <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>目录
+</div>
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A2%E9%98%85%E6%9C%BA%E5%9C%BA%E6%9C%8D%E5%8A%A1"><span class="toc-number">1.</span> <span class="toc-text">订阅机场服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85V2ray"><span class="toc-number">2.</span> <span class="toc-text">下载安装V2ray</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%8D%E5%88%B6%E6%9C%BA%E5%9C%BA%E8%AE%A2%E9%98%85%E5%9C%B0%E5%9D%80"><span class="toc-number">3.</span> <span class="toc-text">复制机场订阅地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEV2ray"><span class="toc-number">4.</span> <span class="toc-text">配置V2ray</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E5%A4%A7%E5%9D%91"><span class="toc-number">4.1.</span> <span class="toc-text">注意大坑</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E5%90%AFV2ray"><span class="toc-number">5.</span> <span class="toc-text">开启V2ray</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9B%B4%E5%A4%9A%E7%BB%86%E8%8A%82%E5%8F%AF%E6%9F%A5%E7%9C%8B%E9%80%9F%E9%B9%B0666%E5%AE%98%E7%BD%91%E3%80%82%E3%80%82%E3%80%82%E3%80%82%E3%80%82%E3%80%82"><span class="toc-number">5.0.1.</span> <span class="toc-text">更多细节可查看速鹰666官网。。。。。。</span></a></li></ol></li></ol></li></ol>
+</div></main>
+            <aside class="left-column">
+              
+              <div class="card card-author">
+                
+  <img 
+    src="/img/author.png" 
+    class="author-img"
+    width="88"
+    height="88"
+    alt="author avatar">
+
+<p class="author-name">Yuanlin</p>
+<p class="author-description">数码科技/技术迷，科技让生活更有趣</p>
+<div class="author-message">
+  <a 
+    class="author-posts-count" 
+    href="/archives">
+    <span>20</span>
+    <span>文章</span>
+  </a>
+  <a 
+    class="author-categories-count" 
+    href="/categories">
+    <span>6</span>
+    <span>分类</span>
+  </a>
+  <a 
+    class="author-tags-count" 
+    href="/tags">
+    <span>28</span>
+    <span>标签</span>
+  </a>
+</div>
+
+  <div class="author-card-society">
+    
+      <div class="author-card-society-icon">
+        <a target="_blank" rel="noopener" href="https://github.com/skillfans">
+          <i class="iconfont icon-github society-icon"></i>
+        </a>
+      </div>
+    
+      <div class="author-card-society-icon">
+        <a target="_blank" rel="noopener" href="https://weibo.com/u/7548933742">
+          <i class="iconfont icon-sina society-icon"></i>
+        </a>
+      </div>
+    
+      <div class="author-card-society-icon">
+        <a target="_blank" rel="noopener" href="https://space.bilibili.com/435408933?spm_id_from=333.1007.0.0">
+          <i class="iconfont icon-bilibili society-icon"></i>
+        </a>
+      </div>
+    
+  </div>
+
+              </div>
+               <div class="sticky-tablet">
+  
+  
+    <article class="display-when-two-columns spacer">
+      <div class="card card-content toc-card">
+        <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>目录
+</div>
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A2%E9%98%85%E6%9C%BA%E5%9C%BA%E6%9C%8D%E5%8A%A1"><span class="toc-number">1.</span> <span class="toc-text">订阅机场服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85V2ray"><span class="toc-number">2.</span> <span class="toc-text">下载安装V2ray</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%8D%E5%88%B6%E6%9C%BA%E5%9C%BA%E8%AE%A2%E9%98%85%E5%9C%B0%E5%9D%80"><span class="toc-number">3.</span> <span class="toc-text">复制机场订阅地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEV2ray"><span class="toc-number">4.</span> <span class="toc-text">配置V2ray</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E5%A4%A7%E5%9D%91"><span class="toc-number">4.1.</span> <span class="toc-text">注意大坑</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E5%90%AFV2ray"><span class="toc-number">5.</span> <span class="toc-text">开启V2ray</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9B%B4%E5%A4%9A%E7%BB%86%E8%8A%82%E5%8F%AF%E6%9F%A5%E7%9C%8B%E9%80%9F%E9%B9%B0666%E5%AE%98%E7%BD%91%E3%80%82%E3%80%82%E3%80%82%E3%80%82%E3%80%82%E3%80%82"><span class="toc-number">5.0.1.</span> <span class="toc-text">更多细节可查看速鹰666官网。。。。。。</span></a></li></ol></li></ol></li></ol>
+      </div>
+    </article>
+  
+  
+  <article class="card card-content categories-widget">
+    <div class="categories-card">
+  <div class="categories-header">
+    <i 
+      class="iconfont icon-fenlei" 
+      style="padding-right: 2px;">
+    </i>分类
+  </div>
+  <div class="categories-list">
+    
+      <a href="/categories/hexo/">
+        <div class="categories-list-item">
+          hexo
+          <span class="categories-list-item-badge">8</span>
+        </div>
+      </a>
+    
+      <a href="/categories/windows/">
+        <div class="categories-list-item">
+          windows
+          <span class="categories-list-item-badge">6</span>
+        </div>
+      </a>
+    
+      <a href="/categories/%E7%BD%91%E7%BB%9C/">
+        <div class="categories-list-item">
+          网络
+          <span class="categories-list-item-badge">3</span>
+        </div>
+      </a>
+    
+      <a href="/categories/%E8%AF%AD%E8%A8%80%E8%AF%AD%E6%B3%95/">
+        <div class="categories-list-item">
+          语言语法
+          <span class="categories-list-item-badge">1</span>
+        </div>
+      </a>
+    
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/">
+        <div class="categories-list-item">
+          计算机
+          <span class="categories-list-item-badge">1</span>
+        </div>
+      </a>
+    
+      <a href="/categories/%E8%84%9A%E6%9C%AC/">
+        <div class="categories-list-item">
+          脚本
+          <span class="categories-list-item-badge">1</span>
+        </div>
+      </a>
+    
+  </div>
+</div>
+  </article>
+  
+  <article class="card card-content tags-widget">
+    <div class="tags-card">
+  <div class="tags-header">
+    <i 
+      class="iconfont icon-biaoqian" 
+      style="padding-right: 2px;">
+    </i>热门标签
+  </div>
+  <div class="tags-list">
+    
+      <a 
+        href="/tags/gitee/" 
+        title="gitee">
+        <div class="tags-list-item">gitee</div>
+      </a>
+    
+      <a 
+        href="/tags/github/" 
+        title="github">
+        <div class="tags-list-item">github</div>
+      </a>
+    
+      <a 
+        href="/tags/%E7%B3%BB%E7%BB%9F%E9%87%8D%E8%A3%85/" 
+        title="系统重装">
+        <div class="tags-list-item">系统重装</div>
+      </a>
+    
+      <a 
+        href="/tags/%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95/" 
+        title="右键菜单">
+        <div class="tags-list-item">右键菜单</div>
+      </a>
+    
+      <a 
+        href="/tags/picgo/" 
+        title="picgo">
+        <div class="tags-list-item">picgo</div>
+      </a>
+    
+      <a 
+        href="/tags/VScode/" 
+        title="VScode">
+        <div class="tags-list-item">VScode</div>
+      </a>
+    
+      <a 
+        href="/tags/git/" 
+        title="git">
+        <div class="tags-list-item">git</div>
+      </a>
+    
+      <a 
+        href="/tags/%E6%B2%B9%E7%8C%B4-Tampermonkey/" 
+        title="油猴(Tampermonkey)">
+        <div class="tags-list-item">油猴(Tampermonkey)</div>
+      </a>
+    
+      <a 
+        href="/tags/%E4%B8%80%E7%A2%B0%E4%BC%A0/" 
+        title="一碰传">
+        <div class="tags-list-item">一碰传</div>
+      </a>
+    
+      <a 
+        href="/tags/DNS/" 
+        title="DNS">
+        <div class="tags-list-item">DNS</div>
+      </a>
+    
+      <a 
+        href="/tags/GitHub/" 
+        title="GitHub">
+        <div class="tags-list-item">GitHub</div>
+      </a>
+    
+      <a 
+        href="/tags/hosts/" 
+        title="hosts">
+        <div class="tags-list-item">hosts</div>
+      </a>
+    
+      <a 
+        href="/tags/%E5%9B%BA%E5%AE%9A%E9%93%BE%E6%8E%A5/" 
+        title="固定链接">
+        <div class="tags-list-item">固定链接</div>
+      </a>
+    
+      <a 
+        href="/tags/V2ray/" 
+        title="V2ray">
+        <div class="tags-list-item">V2ray</div>
+      </a>
+    
+      <a 
+        href="/tags/%E8%87%AA%E5%8A%A8%E6%8B%A8%E5%8F%B7/" 
+        title="自动拨号">
+        <div class="tags-list-item">自动拨号</div>
+      </a>
+    
+      <a 
+        href="/tags/%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1/" 
+        title="计划任务">
+        <div class="tags-list-item">计划任务</div>
+      </a>
+    
+  </div>
+</div>
+  </article>
+  
+  
+</div>
+            </aside>
+            <aside class="right-column">
+              <div class="sticky-widescreen">
+  
+  
+    <article class="card card-content toc-card">
+      <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>目录
+</div>
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A2%E9%98%85%E6%9C%BA%E5%9C%BA%E6%9C%8D%E5%8A%A1"><span class="toc-number">1.</span> <span class="toc-text">订阅机场服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85V2ray"><span class="toc-number">2.</span> <span class="toc-text">下载安装V2ray</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%8D%E5%88%B6%E6%9C%BA%E5%9C%BA%E8%AE%A2%E9%98%85%E5%9C%B0%E5%9D%80"><span class="toc-number">3.</span> <span class="toc-text">复制机场订阅地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEV2ray"><span class="toc-number">4.</span> <span class="toc-text">配置V2ray</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E5%A4%A7%E5%9D%91"><span class="toc-number">4.1.</span> <span class="toc-text">注意大坑</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E5%90%AFV2ray"><span class="toc-number">5.</span> <span class="toc-text">开启V2ray</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9B%B4%E5%A4%9A%E7%BB%86%E8%8A%82%E5%8F%AF%E6%9F%A5%E7%9C%8B%E9%80%9F%E9%B9%B0666%E5%AE%98%E7%BD%91%E3%80%82%E3%80%82%E3%80%82%E3%80%82%E3%80%82%E3%80%82"><span class="toc-number">5.0.1.</span> <span class="toc-text">更多细节可查看速鹰666官网。。。。。。</span></a></li></ol></li></ol></li></ol>
+    </article>
+  
+  
+  <article class="card card-content">
+    <div class="recent-posts-card">
+  <div class="recent-posts-header">
+    <i 
+      class="iconfont icon-wenzhang_huaban" 
+      style="padding-right: 2px;">
+    </i>最近文章
+  </div>
+  <div class="recent-posts-list">
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2022-06-06</div>
+        <a href="/2022/06/06/hexo%E4%B8%BB%E9%A2%98icarus%E4%BE%9D%E8%B5%96%E5%AE%89%E8%A3%85/"><div class="recent-posts-item-content">hexo主题icarus依赖安装</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2022-05-18</div>
+        <a href="/2022/05/18/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B2%B9%E7%8C%B4%E8%84%9A%E6%9C%AC/"><div class="recent-posts-item-content">浏览器油猴脚本</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2022-05-03</div>
+        <a href="/2022/05/03/windows10%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95%E6%B7%BB%E5%8A%A0powershell/"><div class="recent-posts-item-content">windows10右键菜单添加powershell</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2022-04-29</div>
+        <a href="/2022/04/29/%E4%B8%8A%E7%BD%91%E6%8C%87%E5%8D%97/"><div class="recent-posts-item-content">上网指南</div></a>
+      </div>
+    
+  </div>
+</div>
+  </article>
+  
+  
+</div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </div>
+     
+    <footer class="footer">
+  <div class="footer-container">
+    <div>
+      <div class="footer-dsc">
+        <span>
+          Copyright ©
+          
+            2020
+          
+          
+                - 
+                2022
+          
+        </span>
+        &nbsp;
+        <a 
+          href="/" 
+          class="footer-link">
+          skillfans-博客
+        </a>
+      </div>
+    </div>
+
+    
+    
+    
+    
+</footer>
+ 
+    
+  <a 
+    role="button" 
+    id="scrollbutton" 
+    class="basebutton" 
+    aria-label="回到顶部">
+    <i class="iconfont icon-arrowleft button-icon"></i>
+  </a>
+
+<a 
+  role="button" 
+  id="menubutton"
+  aria-label="menu button"
+  class="basebutton">
+  <i class="iconfont icon-menu button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="popbutton" 
+  class="basebutton" 
+  aria-label="控制中心">
+  <i class="iconfont icon-expand button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="darkbutton" 
+  class="basebutton darkwidget" 
+  aria-label="夜色模式">
+  <i class="iconfont icon-weather button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="searchbutton" 
+  class="basebutton searchwidget" 
+  aria-label="搜索">
+  <i class="iconfont icon-search button-icon"></i>
+</a> 
+     
+     
+     
+      <script>
+  var addImgLayout = function () {
+    var img = document.querySelectorAll('.post-content img')
+    var i
+    for (i = 0; i < img.length; i++) {
+      var wrapper = document.createElement('a')
+      wrapper.setAttribute('href', img[i].getAttribute('data-src'))
+      wrapper.setAttribute('aria-label', 'illustration')
+      wrapper.style.cssText =
+        'width: 100%; display: flex; justify-content: center;'
+      if (img[i].alt) wrapper.dataset.caption = img[i].alt
+      wrapper.dataset.nolink = true
+      img[i].before(wrapper)
+      wrapper.append(img[i])
+      var divWrap = document.createElement('div')
+      divWrap.classList.add('gallery')
+      wrapper.before(divWrap)
+      divWrap.append(wrapper)
+    }
+    baguetteBox.run('.gallery')
+  }
+</script>
+<script>
+  loadScript(
+    "/js/lib/lightbox/baguetteBox.min.js",
+    addImgLayout
+  )
+</script>
+ 
+     
+     
+    <script src="/js/main.js"></script> 
+     
+    
+      <script>
+        var addLazyload = function () {
+          var observer = lozad('.lozad', {
+            load: function (el) {
+              el.srcset = el.getAttribute('data-src')
+            },
+            loaded: function (el) {
+              el.classList.add('loaded')
+            },
+          })
+          observer.observe()
+        }
+      </script>
+      <script>
+        loadScript('/js/lib/lozad.min.js', addLazyload)
+      </script>
+     
+    
+    
+      <script>
+        setTimeout(() => {localSearch("search.json")}, 0)
+      </script>
+    
+  </body>
+</html>
